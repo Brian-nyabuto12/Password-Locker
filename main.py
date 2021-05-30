@@ -57,3 +57,43 @@ def find_user_data(account_name):
     function that finds the user data by the username
     """
     return UserData.find_by_account_name(account_name)
+
+
+
+
+def main():
+    print("Hello Client,Welcome to Password Locker!,")
+    print("What is your name?")
+    user_name = input('Name:')
+    print(f'Hello {user_name}.What would you like to do?')
+    while True:
+        print("follow the short codes : cc - create a new account, lg - log in, ext - exit")
+        short_code = input().lower()
+
+        if short_code== 'cc':
+                          print("-"*10)
+                          print("username...")
+                          username = input()
+
+                          print("password...")
+                          password = input()
+                          save_credentials(create_credentials(username, password))
+                          print('\n')
+                          print(f"Your new account with username : '{username}' and password '{password}' has been created successfully")
+                          print('\n')
+
+        elif short_code == 'lg':
+                         print("Enter username and password to login:")
+                         print("-"*50)
+                         username = input("Username: ")
+                         password = input("Password: ")
+                         log_in = authenticate_credentials(username, password)
+                         if log_in==0:
+                                print("\n")
+                                print("Invalid username and/or password")
+                                print("-"*25)
+                         elif log_in!=0:
+                                print("\n")
+                                print(f"Welcome {log_in.uname}! What would you like to do?")
+
+
