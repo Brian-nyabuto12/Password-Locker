@@ -15,4 +15,21 @@ def save_credentials(credential):
     """
     credential.save_credentials()  
 
-      
+def check_existing_credentials(username, password):
+    """
+    function to test if the credentias exist
+    """
+    return Credential.credential_exist(username, password)
+
+def authenticate_credentials(username, password):
+    """
+    """
+    return Credential.authenticate_credential(username, password) 
+
+def  user_data(account_name, account_username, account_password):
+    """
+    functions to authenticate and log in a user
+    """          
+    data = UserData(account_name, account_username, account_password)
+    return data
+    
