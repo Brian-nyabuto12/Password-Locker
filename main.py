@@ -99,7 +99,7 @@ def main():
 
 
         while True:
-                                    print("To change your credentials use the short input : ap - add new password, cp - copy a  password , lp - view you passwords, ex - exit")
+                                    print("To change your credentials use the short input : ap - add new password, cp - copy a  password , lp - view you passwords, ext - exit")
                                     short_code= input()  
                                     if short_code== "ap":
                                         print("Enter account name such as facebook, instagram or Gmail:.......")
@@ -130,15 +130,16 @@ def main():
 
 
                                     elif short_code == "lp":
+                                        print("Enter the account name to display your account details")
+                                        user_data = (input("account name : "))
                                         if display_data():
                                             print('\n')
-                                            for data in  display_data():
-                                                print(f"{data.account_name}------> {data.account_password}")
+                                            for user_data in  display_data():
+                                                print(f"{user_data.account_name}------> {user_data.account_password}")
                                                 print('\n')
 
                                     elif short_code == "ext":
-                                        print('\n')
-                                        print(f"Bye: {username}")
+                                               print(f"Bye: {username}")
 
 
 
