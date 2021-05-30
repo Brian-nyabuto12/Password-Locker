@@ -92,10 +92,10 @@ def main():
                                 print("\n")
                                 print("Invalid username and/or password")
                                 print("-"*25)
-                         elif log_in!=0:
+                         elif log_in!=username:
                                 print("\n")
-                                print(f"Welcome {log_in.username}! What would you like to do?")
-                                
+                                print(f"Welcome {username}! What would you like to do?")
+
 
 
         while True:
@@ -137,7 +137,8 @@ def main():
                                                 print('\n')
 
                                     elif short_code == "ext":
-                                        print(f"Bye{log_in.username}")
+                                        print('\n')
+                                        print(f"Bye: {username}")
 
 
 
