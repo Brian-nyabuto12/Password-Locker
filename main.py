@@ -32,4 +32,26 @@ def  user_data(account_name, account_username, account_password):
     """          
     data = UserData(account_name, account_username, account_password)
     return data
-    
+def create_new_data(mydata):
+    """
+    function that create new data to save user password
+    """
+    mydata.create_password()
+
+def display_data():
+    """
+    function to display the data
+    """
+    return UserData.display_user_data()
+
+def data_exist(account_name):
+    """
+    function that checks that the data exists
+    """
+    return UserData.data_exists(account_name)
+
+def find_user_data(account_name):
+    """
+    function that finds the user data by the username
+    """
+    return UserData.find_by_account_name(account_name)
