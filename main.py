@@ -1,6 +1,8 @@
 from pass_locker import Credential
 from pass_locker import UserData
-
+import random
+import string
+import time
 
 def create_credentials(username, password):
     """
