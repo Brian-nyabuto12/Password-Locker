@@ -11,7 +11,7 @@ class Testcredential(unittest.TestCase):
         """
         this is a setup structure before every test
         """
-        self.new_credentials = Credential('username', 'password')
+        self.new_credentials = Credential('brian', '2827')
 
     def tearDown(self):
         """
@@ -24,8 +24,8 @@ class Testcredential(unittest.TestCase):
         """
         test for case initialization
         """
-        self.assertEqual(self.new_credentials.username, "Brian")
-        self.assertEqual(self.new_credentials.password, "pass")
+        self.assertEqual(self.new_credentials.username, "brian")
+        self.assertEqual(self.new_credentials.password, "2827")
 
 
 
@@ -50,7 +50,7 @@ class Testcredential(unittest.TestCase):
             """
             setting up structure before every test
             """
-            self.new_user_data = UserData("facebook", "brian", "pass")
+            self.new_user_data = UserData("facebook", "brian", "2827")
 
         def tearDown(self):
             """
@@ -62,4 +62,24 @@ class Testcredential(unittest.TestCase):
             """
             test for the case initialization
             """
-            
+            self.assertEqual(self.new_user_data.account_name, "facebook")
+            self.assertEqual(self.new_user_data.account_username, "brian")
+            self.assertEqual(self.new_user_data.account_password, "2827")
+
+        def test_add_password(self):
+            """
+            test if the new website and password can be saved    
+            """
+            self.new_user_data.create_password()
+            self.assertEqual(len(UserData.user_data_list), 1)
+
+        def test_display_data(self):
+            """
+            Testing if the data can be displayed.
+            """
+            self.new_user_data.create_password()
+            test_this = UserData("twitter","liz", "pass")
+            test_this.create_password()
+
+            found_user_data = UserData.display_user_data("twitter")
+            self.assertEqual(found_user_data.account_name,test_this.account_name)
